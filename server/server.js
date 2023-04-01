@@ -9,13 +9,16 @@ const cors = require("cors");
 // Create application
 const app = express();
 
+const CLIENT_URL = process.env.CLIENT_URL;
+console.log(CLIENT_URL);
+
 // Middleware
 app.use(morgan("common"));
 app.use(helmet());
 // set up cors middleware
 app.use(
   cors({
-    origin: "http://localhost:3000", // replace with your frontend URL
+    origin: CLIENT_URL, // replace with your frontend URL
     credentials: true,
   })
 );
